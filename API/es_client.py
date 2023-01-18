@@ -61,3 +61,8 @@ class ESClient:
         }
       })
     return self.extract_songs(resp)
+
+  def regular_search(self, req_body):
+    print(req_body)
+    resp = self.es.search(index="sinhala-songs-corpus", body={"query": {"match_all": {}}})
+    return self.extract_songs(resp)
