@@ -15,8 +15,8 @@ def root():
         else:
             songs = es.regular_search(request.form.to_dict(flat=True))
         print("# Songs : ", len(songs))
-        return render_template("advanced_search_engine.html", songs=songs)
-    return render_template("advanced_search_engine.html", songs=[])
+        return render_template("search_engine.html", songs=songs)
+    return render_template("search_engine.html", songs=[])
 
 if __name__ == "__main__":
     app.run(debug=True)
