@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Advanced Search Engine</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body data-bs-theme="dark">
+    <div>
+        <nav class="navbar sticky-top bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand">Search Sinhala Songs & Metaphors</a>
+            </div>
+        </nav>
+    </div>
+    <div class="container pt-3">
+        <div>
+            <p>
+                <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#logicalCombination" aria-expanded="false" aria-controls="logicalCombination">
+                    Try A Combination
+                </button>
+            </p>
+        </div>
+        <div class="collapse" id="logicalCombination">
+            <div class="card card-body">
+                <form action="http://localhost:5000/" method="post">
+                    <div class="input-group mb-3">
+                        <select class="btn btn-outline-secondary" aria-label="key1" aria-placeholder="Key1" name="key1">
+                            <option value="Title">Title</option>
+                            <option value="Singer(s)">Singer</option>
+                            <option value="Lyricist">Lyricist</option>
+                            <option value="Musician">Musician</option>
+                            <option value="Album">Album</option>
+                            <option value="Released Year">Released Year</option>
+                            <option value="Metaphor">Metaphor</option>
+                            <option value="Source Domain">Source Domain</option>
+                            <option value="Target Domain">Target Domain</option>
+                        </select>
+                        <input type="text" class="form-control" aria-label="value1" placeholder="Value" name="value1">
+                        <select class="btn btn-outline-secondary" aria-label="operation" aria-placeholder="operation" name="operation">
+                            <option value="and">and</option>
+                            <option value="or">or</option>
+                            <option value="not">not</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <select class="btn btn-outline-secondary" aria-label="key2" aria-placeholder="Key2" name="key2">
+                            <option value="Singer(s)">Singer</option>
+                            <option value="Title">Title</option>
+                            <option value="Lyricist">Lyricist</option>
+                            <option value="Musician">Musician</option>
+                            <option value="Album">Album</option>
+                            <option value="Released Year">Released Year</option>
+                            <option value="Metaphor">Metaphor</option>
+                            <option value="Source Domain">Source Domain</option>
+                            <option value="Target Domain">Target Domain</option>
+                        </select>
+                        <input type="text" class="form-control" aria-label="value1" placeholder="Value" name="value2">
+                        <button class="btn btn-primary" type="submit" id="logicalCombinationSearch" name="logical_combination_search">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <br>
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered align-middle">
+                <thead>
+                    <tr>
+                      <th scope="col">Title</th>
+                      <th scope="col">Singer(s)</th>
+                      <th scope="col">Lyricist</th>
+                      <th scope="col">Musician</th>
+                      <th scope="col">Album</th>
+                      <th scope="col">Released Year</th>
+                      <th scope="col">Lyrics</th>
+                      <th scope="col">Metaphor</th>
+                      <th scope="col">Source Domain</th>
+                      <th scope="col">Target Domain</th>
+                      <th scope="col">Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for song in songs %}
+                    <tr>
+                        {% for key, value in song.items() %}
+                        <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
