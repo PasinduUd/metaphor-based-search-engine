@@ -15,6 +15,14 @@ class ESClient:
     resp = self.es.search(index="sinhala-songs-corpus", body={"query": {"match_all": {}}})
     return self.extract_songs(resp)
 
+  def advanced_search(self, req_body):
+    filled_keys = {k: v for k, v in req_body.items() if v}
+    must_list = []
+    for k in filled_keys.keys():
+      must_list.append({ "match" : { k+".case_insensitive_and_inflections" : req_body[k] } })
+    resp = self.es.search(index="sinhala-songs-corpus",body={"query": {"bool": {"must": must_list}}})
+    return self.extract_songs(resp)
+
   def get_logical_combinations(self, req_body):
     resp = None
     if req_body["operation"] == "and":
@@ -53,7 +61,3 @@ class ESClient:
         }
       })
     return self.extract_songs(resp)
-    
-    
-    
- 

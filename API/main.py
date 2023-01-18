@@ -9,14 +9,13 @@ app = Flask(__name__)
 def root():
     songs = []
     if request.method == "POST":
-        if "logical_combination_search" in request.form:
-            req_body = request.form.to_dict(flat=True)
-            songs = es.get_logical_combinations(req_body)
-            print("# Songs : ", len(songs))
+        if "advanced_search" in request.form:
+            songs = es.advanced_search(request.form.to_dict(flat=True))
+        elif "logical_combination_search" in request.form:
+            songs = es.get_logical_combinations(request.form.to_dict(flat=True))
+        print("# Songs : ", len(songs))
         return render_template("advanced_search_engine.html", songs=songs)
     return render_template("advanced_search_engine.html", songs=[])
-
-
 
 # @app.route("/", methods=["GET"])
 # def root():
