@@ -126,7 +126,22 @@
                 }
             },
             "Released Year": {
-                "type": "integer"
+                "type": "text",
+                "analyzer": "plain",
+                "fields": {
+                    "case_insensitive": {
+                        "type": "text",
+                        "analyzer": "case_insensitive"
+                    },
+                    "inflections": {
+                        "type": "text",
+                        "analyzer": "inflections"
+                    },
+                    "case_insensitive_and_inflections": {
+                        "type": "text",
+                        "analyzer": "case_insensitive_and_inflections"
+                    }
+                }
             },
             "Lyrics": {
                 "type": "text",
@@ -165,10 +180,40 @@
                 }
             },
             "Source Domain": {
-                "type": "keyword"
+                "type": "text",
+                "analyzer": "plain",
+                "fields": {
+                    "case_insensitive": {
+                        "type": "text",
+                        "analyzer": "case_insensitive"
+                    },
+                    "inflections": {
+                        "type": "text",
+                        "analyzer": "inflections"
+                    },
+                    "case_insensitive_and_inflections": {
+                        "type": "text",
+                        "analyzer": "case_insensitive_and_inflections"
+                    }
+                }
             },
             "Target Domain": {
-                "type": "keyword"
+                "type": "text",
+                "analyzer": "plain",
+                "fields": {
+                    "case_insensitive": {
+                        "type": "text",
+                        "analyzer": "case_insensitive"
+                    },
+                    "inflections": {
+                        "type": "text",
+                        "analyzer": "inflections"
+                    },
+                    "case_insensitive_and_inflections": {
+                        "type": "text",
+                        "analyzer": "case_insensitive_and_inflections"
+                    }
+                }
             },
             "Meaning": {
                 "type": "text",
