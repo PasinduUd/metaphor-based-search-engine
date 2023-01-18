@@ -1,18 +1,19 @@
 from flask import Flask, render_template, request
 
-import es_connector
-import models
+import es_client
 
-es = es_connector.ESConnector()
+es = es_client.ESClient()
 app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def root():
+    songs = []
     if request.method == "POST":
         if "logical_combination_search" in request.form:
-            body = request.form.to_dict(flat=True)
-            print(body["operation"])
-        return render_template("advanced_search_engine.html", songs=es.get_all_songs())
+            req_body = request.form.to_dict(flat=True)
+            songs = es.get_logical_combinations(req_body)
+            print("# Songs : ", len(songs))
+        return render_template("advanced_search_engine.html", songs=songs)
     return render_template("advanced_search_engine.html", songs=[])
 
 
