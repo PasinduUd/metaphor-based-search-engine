@@ -1,0 +1,3 @@
+curl -X PUT "localhost:9200/sinhala-songs-corpus?pretty" -H "Content-Type: application/json" -d @es_mapping.json
+
+curl -X POST "localhost:9200/sinhala-songs-corpus/_bulk?pretty" -H "Content-Type: application/json" --data-binary @sinhala_songs_corpus_es_formatted.json
