@@ -17,4 +17,18 @@ Go to the root folder of the project and open the command prompt. Then use the c
 
 ## User Interfaces
 
-* **Landing Interface**  
+* **Landing Interface** 
+
+![Landing Interface](./UI%20Screenshots/landing_interface.png?raw=true "Landing Interface")
+
+* **Advanced Search** 
+
+![Advanced Search](./UI%20Screenshots/advanced_search.png?raw=true "Advanced Search")  
+
+* **Try a Combination** 
+
+![Try a Combination](./UI%20Screenshots/try_a_combination.png?raw=true "Try a Combination")
+
+* **Search Results** 
+
+![Search Results](./UI%20Screenshots/search_results.png?raw=true "Search Results")
