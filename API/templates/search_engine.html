@@ -9,14 +9,14 @@
 <body data-bs-theme="dark">
     <div>
         <nav class="navbar sticky-top bg-body-tertiary">
-            <div class="container-fluid">
+            <div class="container-fluid px-3">
                 <a class="navbar-brand">Search Sinhala Songs & Metaphors</a>
             </div>
         </nav>
     </div>
 
     <div class="container pt-3">
-        <div class="input-group">
+        <div class="input-group d-flex justify-content-center">
             <div>
                 <p>
                     <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#advancedSearch" aria-expanded="false" aria-controls="advancedSearch">
@@ -34,7 +34,7 @@
             <div>
                 <form action="http://localhost:5000/" method="post">
                     <div class="input-group">
-                        <input type="text" class="form-control" name="query">
+                        <input type="text" class="form-control" name="query" placeholder="Query">
                         <button class="btn btn-primary" type="submit" id="search" name="search">Search</button>
                     </div>
                 </form>
