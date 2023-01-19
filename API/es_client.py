@@ -1,4 +1,5 @@
 from elasticsearch import Elasticsearch
+from search import search_user_query
 
 class ESClient:
   def __init__(self):
@@ -63,6 +64,5 @@ class ESClient:
     return self.extract_songs(resp)
 
   def regular_search(self, req_body):
-    print(req_body)
-    resp = self.es.search(index="sinhala-songs-corpus", body={"query": {"match_all": {}}})
+    resp = search_user_query(req_body["query"], self.es)
     return self.extract_songs(resp)
