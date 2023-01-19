@@ -35,7 +35,7 @@ def check_similarity(documents):
     return similarity_list
 
 def keyword_classifier(query:str):
-    select_type = -1
+    select_type = -1    # -1: No keywords identified, 0: 
     result_word = ''
     field_intent = ''
 
@@ -69,15 +69,17 @@ def keyword_classifier(query:str):
 
 def search_text(search_term, es):
     results = es.search(index="sinhala-songs-corpus", body={
-    "query": {
-        "multi_match": {
-            "query": search_term,
-            "type": "best_fields",
-            "fields": [
-                "Title", "Singer(s)", "Album", "Released Year", "Lyricist",
-                "Lyrics", "Metaphor", "Meaning", "Source Domain", "Target Domain"]
+        "size": 100,
+        "query": {
+            "multi_match": {
+                "query": search_term,
+                "type": "best_fields",
+                "fields": [
+                    "Title", "Singer(s)", "Lyricist", "Musician", "Album", "Released Year",
+                    "Lyrics", "Metaphor", "Source Domain", "Target Domain", "Meaning"
+                ]
+            }
         }
-    }
     })
     return results
 
@@ -88,9 +90,7 @@ def search_text_multi_match(search_term, select_type, field_intent, es):
     else:
         english_term = search_term
 
-    f = io.open('../Data/songs_metadata.json',
-                mode="r",
-                encoding="utf-8")
+    f = io.open('../Data/songs_metadata.json', mode="r", encoding="utf-8")
     meta_data = json.loads(f.read())
 
     data=[]
@@ -137,7 +137,6 @@ def search_user_query(query, es):
 
     select_type, strip_term, field_intent = keyword_classifier(traslated_query)
     resp = None
-    # resp = search_text(query)
     if select_type == -1:
         resp = search_text(query, es)
     else:
