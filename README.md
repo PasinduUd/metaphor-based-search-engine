@@ -31,4 +31,4 @@ Go to the root folder of the project and open the command prompt. Then use the c
 
 * **Search Results** 
 
-![Search Results](./UI%20Screenshots/search_results.png?raw=true "Search Results")
+![Search Results](./UI%20Screenshots/search_results_1.png?raw=true "Search Results")
