@@ -32,3 +32,22 @@ Go to the root folder of the project and open the command prompt. Then use the c
 * **Search Results** 
 
 ![Search Results](./UI%20Screenshots/search_results_1.png?raw=true "Search Results")
+
+## Example Search Queries
+
+* **Advanced Search**  
+`Singer(s) : Sunil Edirisinghe, Musician : Rohana Weerasinghe, Target Domain : Girls`   
+
+* **Try a Combination**   
+`and => Source Domain : Moon, Target Domain : Girls`   
+`or => Source Domain : Moon, Target Domain : Girls`   
+`not => Singer(s) : Sunil Edirisinghe, Musician : Rohana Weerasinghe`  
+
+* **Search without Keyword Idenification and Classification**    
+`Sunil Edirisinghe`    
+`නීල වළාවෙි..ඇගෙ පෙම් කතාව අසාගෙන වරෙන්`    
+
+* **Search with Keyword Idenification and Classification**    
+`Songs which have metaphors related to Love`    
+`metaphor target_domain : Girls`    
+`මව සම්බන්ධ අරුතක් ඇති metaphors ඇති ගීත`
